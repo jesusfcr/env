@@ -249,7 +249,7 @@ func optionsWithSliceEnvPrefix(opts Options, index int) Options {
 func optionsWithEnvPrefix(field reflect.StructField, opts Options) Options {
 	prefix := field.Tag.Get(opts.PrefixTagName)
 	if prefix == "" && opts.UseFieldNameByDefault {
-		prefix = toEnvName(field.Name)
+		prefix = toEnvName(field.Name) + "_"
 	}
 	return Options{
 		Environment:           opts.Environment,
